@@ -1,0 +1,7 @@
+extends ./layouts/main-layout.pug
+block content
+    form(action="/admin/add-product", method="post")
+        fieldset 
+            label(for="title")
+            input(type="text",name="title")
+        button(type="submit") Submit 

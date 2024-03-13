@@ -1,0 +1,9 @@
+extends ./layouts/main-layout.pug
+block content
+    h1 Products
+    if products.length === 0
+        p No prducts added yet 
+    else
+        ul 
+            each product in products
+                li= product.title
