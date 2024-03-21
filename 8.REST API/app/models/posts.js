@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../utils/db");
+const Users = require("./users");
 
 const Posts = sequelize.define("Post", {
   id: {
@@ -19,6 +20,11 @@ const Posts = sequelize.define("Post", {
   imgUrl: {
     type: DataTypes.STRING,
     allowNull: true,
+  },
+});
+Posts.belongsTo(Users, {
+  foreignKey: {
+    name: "userId",
   },
 });
 module.exports = Posts;

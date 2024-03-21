@@ -19,7 +19,7 @@ const signIn = async (req, res, next) => {
     const user = await Users.findOne({ where: { email, passwrd } });
     if (user) {
       const accessToken = jwt.sign(
-        { name: user.name, email: user.email },
+        { id: user.id, email: user.email },
         "ACCESS_TOKEN_SECRET",
         { expiresIn: "1h" }
       );
@@ -38,5 +38,14 @@ const signIn = async (req, res, next) => {
     res.status(500).json({ message: "failed to signin", error });
   }
 };
-const userController = { signUp, signIn };
+const deleteUser = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    await Users.destroy({ where: { id } });
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "failed to delete", error });
+  }
+};
+const userController = { signUp, signIn, deleteUser };
 module.exports = userController;
