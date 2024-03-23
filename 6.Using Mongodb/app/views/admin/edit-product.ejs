@@ -6,33 +6,43 @@
     <title><%= pageTitle %></title>
     <link rel="stylesheet" href="/css/bulma.min.css" />
   </head>
-  <body>
-    <h1>Add Product</h1>
+  <body class="m-5">
     <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Edit Product</p>
+      </header>
       <div class="card-content">
-        <form action="/admin/add-product" method="post">
+        <form action="/admin/products/<%= product._id %>/edit" method="post">
           <div class="field">
             <label class="label">Title</label>
             <div class="control">
-              <input class="input" name="title" />
+              <input class="input" name="title" value="<%= product.title %>" />
             </div>
           </div>
           <div class="field">
             <label class="label">Price</label>
             <div class="control">
-              <input class="input" name="price" />
+              <input class="input" name="price" value="<%= product.price %>" />
             </div>
           </div>
           <div class="field">
             <label class="label">Description</label>
             <div class="control">
-              <input class="input" name="description" />
+              <input
+                class="input"
+                name="description"
+                value="<%= product.description %>"
+              />
             </div>
           </div>
           <div class="field">
             <label class="label">Image Url</label>
             <div class="control">
-              <input class="input" name="imageUrl" />
+              <input
+                class="input"
+                name="imageUrl"
+                value="<%= product.imageUrl %>"
+              />
             </div>
           </div>
           <div class="field">

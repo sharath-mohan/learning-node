@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-const { mongoConnect } = require("./utils/db");
+const { client } = require("./utils/db");
 const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.use("/admin", adminRoutes);
+app.use("/shop", shopRoutes);
 
 app.get("/", (req, res) => {
   res.send("Express app");
@@ -25,7 +27,7 @@ app.use((req, res, next) => {
 
 const main = async () => {
   try {
-    await mongoConnect();
+    await client.connect();
     app.listen(3000, () => {
       console.log("app running on port http://localhost:3000");
     });

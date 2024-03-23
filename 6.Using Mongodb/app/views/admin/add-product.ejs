@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/bulma.min.css" />
+  </head>
+  <body class="m-5">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Add Product</p>
+      </header>
+      <div class="card-content">
+        <form action="/admin/add-product" method="post">
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <input class="input" name="title" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+              <input class="input" name="price" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <input class="input" name="description" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Image Url</label>
+            <div class="control">
+              <input class="input" name="imageUrl" />
+            </div>
+          </div>
+          <div class="field">
+            <button class="button is-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
